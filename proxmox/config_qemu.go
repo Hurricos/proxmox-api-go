@@ -1354,8 +1354,22 @@ func SendKeysString(vmr *VmRef, client *Client, keys string) (err error) {
 				c = "equal"
 			case ".":
 				c = "dot"
+			case ":":
+				c = "shift-semicolon"
+			case "<":
+				c = "shift-comma"
+			case ">":
+				c = "shift-dot"
+			case "~":
+				c = "shift-grave_accent"
 			case "?":
 				c = "shift-slash"
+			case "|":
+				c = "shift-backslash"
+			case "\n":
+				c = "ret"
+			case "\t":
+				c = "tab"
 			}
 		}
 		_, err = client.MonitorCmd(vmr, "sendkey "+c)
